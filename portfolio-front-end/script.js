@@ -33,9 +33,22 @@ window.addEventListener('scroll', function() {
     }
 });
 
-// إضافة حدث للنقر لتحريك الصفحة للأعلى بسلاسة
-topButton.addEventListener('click', function(event) {
-    event.preventDefault(); // منع السلوك الافتراضي
-    window.scrollTo({ top: 0, behavior: 'smooth' }); // التمرير إلى أعلى الصفحة بسلاسة
+// JavaScript to toggle the mobile menu
+const menuToggle = document.getElementById('menu-toggle');
+const navbar = document.getElementById('navbar');
+const navbarLinks = document.querySelectorAll('.navbar a');
+
+// Toggle navbar visibility when menu icon is clicked
+menuToggle.addEventListener('click', () => {
+  navbar.classList.toggle('active');
+  menuToggle.classList.toggle('active');
+});
+
+// Close the menu when a navbar link is clicked
+navbarLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    navbar.classList.remove('active');
+    menuToggle.classList.remove('active');
+  });
 });
 

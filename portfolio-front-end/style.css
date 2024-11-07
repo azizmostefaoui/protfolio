@@ -14,6 +14,7 @@ body {
   background: #03072b no-repeat;
   background-color: #081b29;
 }
+/* Basic header styling */
 .header {
   position: fixed;
   top: 0;
@@ -27,75 +28,107 @@ body {
   z-index: 100;
 }
 
-@media (max-width:600px) {
- .header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 20px 5%;
-  background: #051121;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 100;
-} 
-}
-
-
 .logo {
-  position: relative;
   font-size: 25px;
   color: #fff;
   text-decoration: none;
   font-weight: 600;
-  cursor: default;
   opacity: 0;
   animation: slideRight 1s ease forwards;
 }
-@media (max-width:600px) {
-  .logo {
-    position: relative;
-    font-size: 20px;
-    color: #fff;
-    text-decoration: none;
-    font-weight: 600;
-    cursor: default;
-    opacity: 0;
-    animation: slideRight 1s ease forwards;
-  }
+
+/* Navbar styling */
+.navbar {
+  display: flex;
 }
+
 .navbar a {
-  display: inline-block;
   color: #fff;
-  font-size: 25px;
+  font-size: 20px;
   text-decoration: none;
-  font-weight: 500;
-  margin-left: 35px;
-  transition: 0.3s;
+  margin-left: 20px;
   opacity: 0;
   animation: slideTop 0.5s ease forwards;
-  border-radius: 10%;
+  transition: color 0.3s;
 }
-@media (max-width:600px) {
-  .navbar a {
-    display: inline-block;
-    color: #fff;
-    font-size: 15px;
-    text-decoration: none;
-    font-weight: 500;
-    margin-left: 35px;
-    transition: 0.3s;
-    opacity: 0;
-    animation: slideTop 0.5s ease forwards;
-    border-radius: 10%;
-  }
-}
+
 .navbar a:hover {
   color: #0ef;
-
   box-shadow: 0 0 5px cyan;
 }
+
+/* Hamburger menu styling for mobile */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  background: #fff;
+  width: 25px;
+  height: 3px;
+  margin: 4px 0;
+  transition: 0.4s;
+}
+
+/* Mobile styles */
+@media (max-width: 600px) {
+  .header {
+    padding: 20px 5% ;
+    width: 100%;
+ 
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #051121;
+    height: 100vh;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .navbar a {
+    font-size: 20px;
+    margin: 15px 0;
+  }
+
+  /* Display menu-toggle icon on mobile */
+  .menu-toggle {
+    display: flex;
+    position: relative;
+    right:13rem;
+  }
+
+  /* Navbar active state for mobile */
+  .navbar.active {
+    transform: translateX(0);
+  }
+
+  /* Toggle the hamburger menu to "X" */
+  .menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+}
+
 .home {
   position: relative;
   width: 100%;
@@ -132,13 +165,12 @@ body {
   width: 35%;
   height: 60%;
   position: absolute;
-  right: 100px;
-  top: 190px;
+  right: 1rem;
+  top: 180px;
   border-radius: 50%;
   background: transparent;
   box-shadow: 0 0 200px var(--main-color);
-  outline: 10px solid rgb(182, 225, 248);
-}
+  border: 10px solid rgb(182, 225, 248);}
 @media (max-width:600px) {
   .home img {
     width: 38%;
@@ -150,8 +182,8 @@ body {
     border-radius: 50%;
     background: transparent;
     box-shadow: 0 0 200px var(--main-color);
-    outline: 10px solid rgb(182, 225, 248);
-
+    
+    border: 10px solid rgb(182, 225, 248);
   }
 }
 .home img:hover {
@@ -172,7 +204,14 @@ body {
 @media (max-width:600px) {
   .home-content .h4444 {
     font-weight: 700;
-    font-size: 36px;
+    font-size: 25px;
+    opacity: 0;
+    animation: slideBotton 1s ease forwards;
+    animation-delay: 0.7s;
+  }
+  .home-content .h5555 {
+    font-weight: 700;
+    font-size: 30px;
     opacity: 0;
     animation: slideBotton 1s ease forwards;
     animation-delay: 0.7s;
@@ -180,13 +219,19 @@ body {
 }
 @media (max-width:600px) {
   .home-content .h3333  {
-    position: relative;
-    bottom: 60px;
+  padding: auto;
     font-weight: 700;
-    font-size: 25px;
+    font-size: 20px;
     opacity: 0;
     animation: slideBotton 1s ease forwards;
     animation-delay: 0.7s;
+  }
+}
+@media (max-width:600px) {
+  .home-content .h6666  {
+   padding-top: 4rem;
+   padding-bottom: 1rem;
+
   }
 }
 .home-content h3:nth-of-type(2) {
@@ -405,7 +450,7 @@ body {
   line-height: 1.4;
   margin-bottom: 4rem;
 }
-@media (max-width:600px) {
+@media (max-width:900px) {
   .about-text p {
     color: aliceblue;
     font-size: 16px; /* تصغير حجم الخط */
@@ -506,7 +551,7 @@ body {
     align-items: center;
     font-size: 40px;
     padding-bottom: 50px;
-    padding-top: 50px;
+    padding-top: 100px;
 
     margin-top: 100px;
   }
@@ -566,7 +611,7 @@ section {
     grid-template-columns: repeat(1, 1fr); /* 4 equal columns */
     padding: 20px;
     position: relative;
-    right: 160px;
+    right: 200px;
   }
 }
 .Technical-bars {
@@ -725,15 +770,27 @@ svg {
 }
 
 .layer h5 {
-  color: #000;
+  color: #00d5ff;
+  text-shadow: 0px 5px 10px #040404;
+
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 15px;
 }
 .layer p {
   color: #000;
+
   font-size: 20px;
   line-height: 1.8;
+}
+
+@media (max-width:600px) {
+  .layer p {
+    color: #000;
+  
+    font-size: 15px;
+    line-height: 1.8;
+  }
 }
 .layer a {
   color: #ff004f;
@@ -892,7 +949,14 @@ form textarea {
   opacity: 0; /* لجعل الزر غير مرئي في البداية */
   pointer-events: none; /* تعطيل التفاعل مع الزر عندما يكون غير مرئي */
 }
+@media (max-width:600px) {
+  .top {
+    position: fixed;
+    bottom: 2.1rem; /* المكان الافتراضي للزر */
+    right: 14.1rem;
 
+  }
+}
 .top.show {
   opacity: 1; /* جعل الزر مرئي */
   pointer-events: auto; /* تمكين التفاعل مع الزر */
@@ -996,4 +1060,15 @@ form textarea {
 
 
 
+/* إخفاء <br> على أجهزة الكمبيوتر */
+.mobile-br {
+  display: none;
+}
+
+/* إظهار <br> فقط على الأجهزة المحمولة */
+@media (max-width: 1300px) {
+  .mobile-br {
+    display: inline;
+  }
+}
 
