@@ -1,5 +1,5 @@
 var typed = new Typed(".text", {
-  strings: ["Frontend Developer", "small content creator", "Web Developer"],
+  strings: ["Frontend Developer", "Backend Developer", "Web Developer"],
   typeSpeed:100,
   backSpeed:100,
   backDelay:1000,
@@ -21,10 +21,10 @@ function SendMail() {
 
 
 
-// تحديد الزر
+// جلب الزر
 const topButton = document.querySelector('.top');
 
-// إظهار الزر عند التمرير لأسفل
+// إظهار الزر عند التمرير للأسفل
 window.addEventListener('scroll', function() {
     if (window.scrollY > 100) { // عند التمرير لأسفل 100 بكسل
         topButton.classList.add('show');
@@ -32,6 +32,26 @@ window.addEventListener('scroll', function() {
         topButton.classList.remove('show');
     }
 });
+
+// دالة الصعود لأعلى ببطء
+function scrollToTop() {
+    const scrollDuration = 1000; // المدة الكلية للتمرير بالمللي ثانية (1 ثانية)
+    const scrollStep = -window.scrollY / (scrollDuration / 1); // قيمة الخطوة لكل إطار
+
+    const scrollInterval = setInterval(function() {
+        if (window.scrollY > 0) {
+            window.scrollBy(0, scrollStep);
+        } else {
+            clearInterval(scrollInterval); // إيقاف التمرير عند الوصول للأعلى
+        }
+    }, 1); // تعيين فترة التمرير
+}
+
+
+
+
+
+
 
 // JavaScript to toggle the mobile menu
 const menuToggle = document.getElementById('menu-toggle');

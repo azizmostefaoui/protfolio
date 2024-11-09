@@ -77,6 +77,7 @@ body {
   .header {
     padding: 20px 5% ;
     width: 100%;
+
  
   }
 
@@ -107,7 +108,7 @@ body {
   .menu-toggle {
     display: flex;
     position: relative;
-    right:13rem;
+    right:18rem;
   }
 
   /* Navbar active state for mobile */
@@ -176,9 +177,8 @@ body {
     width: 38%;
     height: auto;
   
-    position: absolute;
-    left: 230px;
-    top: 130px;
+ align-items: center;
+ justify-content: center;
     border-radius: 50%;
     background: transparent;
     box-shadow: 0 0 200px var(--main-color);
@@ -215,10 +215,7 @@ body {
     opacity: 0;
     animation: slideBotton 1s ease forwards;
     animation-delay: 0.7s;
-  }
-}
-@media (max-width:600px) {
-  .home-content .h3333  {
+  } .home-content .h3333  {
   padding: auto;
     font-weight: 700;
     font-size: 20px;
@@ -226,14 +223,19 @@ body {
     animation: slideBotton 1s ease forwards;
     animation-delay: 0.7s;
   }
-}
-@media (max-width:600px) {
-  .home-content .h6666  {
-   padding-top: 4rem;
+.home-content .h6666  {
+   padding-top: 2rem;
    padding-bottom: 1rem;
 
   }
+  .home-content .h7777  {
+  font-size: 20px;
+  padding-top: 5rem;
+
+   }
 }
+
+
 .home-content h3:nth-of-type(2) {
   margin-bottom: 30px;
   font-size: 25px;
@@ -264,7 +266,10 @@ body {
   animation: slideLeft 1s ease forwards;
   font-size: 20px;
 }
-
+@media (max-width:600px) {
+  .home-content p  {
+    font-size: 18px;
+  }}
 .home-sci a {
   display: inline-flex;
   border: 2px solid #0ef;
@@ -376,6 +381,7 @@ body {
     grid-template-rows: repeat(2, 1fr);
 
     align-items: center;
+    justify-content: space-between;
     gap: 1.5rem;
     height: 550px;
   
@@ -395,7 +401,7 @@ body {
   border-radius: 50%;
   background: transparent;
   box-shadow: 0 0 200px var(--main-color);
-  outline: 10px solid rgb(182, 225, 248);
+  border: 10px solid rgb(182, 225, 248);
 }
 @media (max-width:600px) {
   .about-img img {
@@ -407,8 +413,7 @@ body {
     border-radius: 50%;
     background: transparent;
     box-shadow: 0 0 200px var(--main-color);
-    outline: 10px solid rgb(182, 225, 248);
-  }
+    border: 10px solid rgb(182, 225, 248);  }
 }
 .about-img img:hover {
   box-shadow: 0 0 5px cyan, 0 0 25px cyan, 0 0 50px cyan, 0 0 100px cyan,
@@ -715,6 +720,13 @@ svg {
 .radial-bars:nth-child(4) .path {
   animation: animation-bar-90 1s ease-out forwards;
 }
+@media (max-width: 600px) {
+  .radial-bars .path {
+      stroke-dasharray: 502;
+      animation-timing-function: linear;
+  }
+}
+
 .main-text {
 
   margin-top: 200px;
@@ -943,27 +955,22 @@ form textarea {
 }
 .top {
   position: fixed;
-  bottom: 2.1rem; /* المكان الافتراضي للزر */
+  bottom: 2.1rem;
   right: 2.1rem;
-  transition: bottom 1s ease-in-out; /* إضافة تأثير انتقال بطيء */
-  opacity: 0; /* لجعل الزر غير مرئي في البداية */
-  pointer-events: none; /* تعطيل التفاعل مع الزر عندما يكون غير مرئي */
+  transition: opacity 0.5s ease; /* تأثير تلاشي */
+  opacity: 0; /* الزر غير مرئي في البداية */
+  pointer-events: none; /* تعطيل التفاعل */
 }
-@media (max-width:600px) {
-  .top {
-    position: fixed;
-    bottom: 2.1rem; /* المكان الافتراضي للزر */
-    right: 14.1rem;
 
+@media (max-width: 600px) {
+  .top {
+    right: 1.1rem;
   }
 }
-.top.show {
-  opacity: 1; /* جعل الزر مرئي */
-  pointer-events: auto; /* تمكين التفاعل مع الزر */
-}
 
-.top.moving {
-  bottom: 100%; /* الانتقال للأعلى خارج الشاشة */
+.top.show {
+  opacity: 1; /* جعل الزر مرئيًا */
+  pointer-events: auto; /* تمكين التفاعل */
 }
 
 .top i {
@@ -973,6 +980,7 @@ form textarea {
   border-radius: 0.5rem;
   font-size: 20px;
 }
+
 
 
 @keyframes slideRight {
