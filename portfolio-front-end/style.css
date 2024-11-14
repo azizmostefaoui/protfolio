@@ -205,7 +205,6 @@ justify-content: space-between;
 }
 
 .home-content {
-  
   font-size: 10px;
 }
 .home-content h3 {
@@ -242,17 +241,21 @@ justify-content: space-between;
    padding-bottom: 1rem;
 
   }
-  .home-content .h7777  {
-display: inline; 
- font-size: 20px;
-  padding-top: 5rem;
+  .home-content .h7777 {
+    font-size: 200px;
 
-   }
-   .home-content .h7777 span {
-
-    color: #0ef;
+    display: inline;
+    padding-top: 5rem;
 
   }
+  
+  .home-content .h7777 .text {
+    color: #0ef;
+    font-size: 21px;
+
+  }
+
+  
 
 }
 
