@@ -77,8 +77,8 @@ body {
 @media (max-width: 600px) {
   .header {
     padding: 20px 5% ;
-    width: 74%;
-
+    width: 100%;
+justify-content: space-between;
  
   }
 
@@ -103,11 +103,14 @@ body {
   .navbar a {
     font-size: 20px;
     margin: 15px 0;
+
   }
 
   /* Display menu-toggle icon on mobile */
   .menu-toggle {
     display: flex;
+    position: relative;
+
   }
 
   /* Navbar active state for mobile */
