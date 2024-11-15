@@ -9,14 +9,28 @@ var typed = new Typed(".text", {
 
 
 function SendMail() {
+  var submitButton = document.querySelector(".send");
+  submitButton.disabled = true; // تعطيل الزر مؤقتًا
+
   var params = {
     name: document.getElementById("name").value,
     email: document.getElementById("email").value,
     message: document.getElementById("message").value
   }
 
-  emailjs.send("service_r7e631e", "template_ggp6etc",params).then(function(res){alert("Success! " +res.status);})
+  emailjs.send("service_r7e631e", "template_ggp6etc", params)
+    .then(function(res) {
+      alert("تم الإرسال بنجاح! الحالة: " + res.status);
+      document.getElementById("contactForm").reset();
+      submitButton.disabled = false; // تفعيل الزر مرة أخرى
+    })
+    .catch(function(error) {
+      console.error("خطأ في الإرسال: ", error);
+      alert("حدث خطأ أثناء إرسال الرسالة. يرجى المحاولة لاحقًا.");
+      submitButton.disabled = false; // تفعيل الزر مرة أخرى
+    });
 }
+
 
 
 
