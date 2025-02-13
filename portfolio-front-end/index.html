@@ -1,6 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <style>
+      .btn-container {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+      }
+  
+      .btn-box {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+          text-decoration: none;
+          font-size: 16px;
+          font-weight: bold;
+          color: white;
+          background-color: #007bff;
+          padding: 12px 20px;
+          border-radius: 8px;
+          transition: 0.3s;
+          text-align: center;
+          min-width: 180px;
+      }
+  
+     
+      /* تحسين زر التحميل */
+     
+  
+  
+      /* جعل الأزرار متجاوبة في الشاشات الصغيرة */
+      @media (max-width: 600px) {
+          .btn-box {
+              width: 100%;
+          }
+      }
+  </style>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
@@ -8,6 +44,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
@@ -79,8 +116,14 @@
           <a href="#"><i class="bx bxl-tiktok"></i></a>
         </div>
     
-        <a href="#about" class="btn-box" style="margin-right: 15px;">More About Me</a>
-        <a href="./MyCv1.pdf.pdf" class="btn-box" download>Download My CV</a>
+        <div class="btn-container">
+          <a href="#about" class="btn-box">
+              More About Me
+          </a>
+          <a href="./MyCv1.pdf.pdf" class="btn-box download-btn" download>
+              <i class="fas fa-download"></i> Download My CV
+          </a>
+      </div>
       </div>
     </section>
     
