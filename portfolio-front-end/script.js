@@ -69,13 +69,16 @@ document.addEventListener("DOMContentLoaded", function () {
   const navbarLinks = document.querySelectorAll(".navbar a");
   const sections = document.querySelectorAll("section");
 
-  // ** تشغيل / إيقاف القائمة عند النقر على زر الـ Menu **
+  if (!menuToggle || !navbar) {
+    console.error("❌ menu-toggle أو navbar غير موجود في HTML!");
+    return; // إيقاف الكود إذا لم يتم العثور على العنصر
+  }
+
   menuToggle.addEventListener("click", function () {
-    navbar.classList.toggle("active"); // عرض أو إخفاء القائمة
-    menuToggle.classList.toggle("active"); // تغيير أيقونة الهامبرغر
+    navbar.classList.toggle("active");
+    menuToggle.classList.toggle("active");
   });
 
-  // ** إغلاق القائمة عند النقر على رابط داخلها **
   navbarLinks.forEach((link) => {
     link.addEventListener("click", function () {
       navbar.classList.remove("active");
@@ -83,7 +86,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // ** تحديث الرابط النشط عند التمرير **
   window.addEventListener("scroll", function () {
     let scrollPosition = window.scrollY;
 
@@ -94,11 +96,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
       if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
         navbarLinks.forEach((link) => link.classList.remove("active"));
-        document.querySelector(`.navbar a[href="#${sectionId}"]`).classList.add("active");
+
+        const activeLink = document.querySelector(`.navbar a[href="#${sectionId}"]`);
+        if (activeLink) {
+          activeLink.classList.add("active");
+        }
       }
     });
   });
 });
+
 
 
 
