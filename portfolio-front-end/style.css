@@ -8,7 +8,9 @@
   --main-color: #0ef; /* Define your main color here */
   --secondary-color: #3f0234; /* Define your secondary color here */
 }
-
+html {
+  scroll-behavior: smooth;
+}
 body {
   color: #ededed;
   background: #03072b no-repeat;
@@ -368,6 +370,7 @@ body {
   box-shadow: 0 0 5px cyan, 0 0 25px cyan, 0 0 50px cyan, 0 0 100px cyan,
     0 0 200px cyan;
 }
+
 .about {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -468,6 +471,7 @@ body {
     width: 200%;
   }
 }
+
 #services {
   color: aliceblue;
   font-size: 20px;
@@ -1068,3 +1072,4 @@ form textarea {
     display: inline;
   }
 }
+

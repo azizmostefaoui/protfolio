@@ -49,17 +49,13 @@ window.addEventListener('scroll', function() {
 
 // دالة الصعود لأعلى ببطء
 function scrollToTop() {
-    const scrollDuration = 1000; // المدة الكلية للتمرير بالمللي ثانية (1 ثانية)
-    const scrollStep = -window.scrollY / (scrollDuration / 1); // قيمة الخطوة لكل إطار
-
-    const scrollInterval = setInterval(function() {
-        if (window.scrollY > 0) {
-            window.scrollBy(0, scrollStep);
-        } else {
-            clearInterval(scrollInterval); // إيقاف التمرير عند الوصول للأعلى
-        }
-    }, 1); // تعيين فترة التمرير
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth" // Normal smooth scrolling, but not too long
+  });
 }
+
+
 
 
 
@@ -87,26 +83,16 @@ navbarLinks.forEach(link => {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  const sections = document.querySelectorAll("section");
-  const navLinks = document.querySelectorAll(".navbar a");
+  const radialBars = document.querySelectorAll(".radial-bars");
 
-  function updateActiveLink() {
-    let currentSection = "";
+  radialBars.forEach((bar) => {
+    let percentage = parseInt(bar.querySelector(".percentage").textContent);
+    let circle = bar.querySelector(".path");
+    let totalLength = circle.getTotalLength(); // اجعل الحساب ديناميكيًا
 
-    sections.forEach((section) => {
-      const sectionTop = section.offsetTop - 100;
-      if (window.scrollY >= sectionTop) {
-        currentSection = section.getAttribute("id");
-      }
-    });
+    let offset = totalLength - (percentage / 100) * totalLength;
 
-    navLinks.forEach((link) => {
-      link.classList.remove("active");
-      if (link.getAttribute("href").includes(currentSection)) {
-        link.classList.add("active");
-      }
-    });
-  }
-
-  window.addEventListener("scroll", updateActiveLink);
+    circle.style.strokeDasharray = totalLength;
+    circle.style.strokeDashoffset = offset;
+  });
 });
