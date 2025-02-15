@@ -37,7 +37,6 @@ function SendMail() {
 
 // جلب الزر
 const topButton = document.querySelector('.top');
-
 // إظهار الزر عند التمرير للأسفل
 window.addEventListener('scroll', function() {
     if (window.scrollY > 100) { // عند التمرير لأسفل 100 بكسل
@@ -46,7 +45,6 @@ window.addEventListener('scroll', function() {
         topButton.classList.remove('show');
     }
 });
-
 // دالة الصعود لأعلى ببطء
 function scrollToTop() {
   window.scrollTo({
@@ -63,24 +61,47 @@ function scrollToTop() {
 
 
 
-// JavaScript to toggle the mobile menu
-const menuToggle = document.getElementById('menu-toggle');
-const navbar = document.getElementById('navbar');
-const navbarLinks = document.querySelectorAll('.navbar a');
+document.addEventListener("DOMContentLoaded", function () {
+  const menuToggle = document.getElementById("menu-toggle");
+  const navbar = document.getElementById("navbar");
+  const navbarLinks = document.querySelectorAll(".navbar a");
+  const sections = document.querySelectorAll("section"); // جميع الأقسام
 
-// Toggle navbar visibility when menu icon is clicked
-menuToggle.addEventListener('click', () => {
-  navbar.classList.toggle('active');
-  menuToggle.classList.toggle('active');
-});
+  // عند النقر على أي رابط، اجعله نشطًا
+  navbarLinks.forEach((link) => {
+    link.addEventListener("click", function () {
+      navbarLinks.forEach((el) => el.classList.remove("active")); // إزالة `active` من الجميع
+      this.classList.add("active"); // إضافة `active` للرابط الحالي
 
-// Close the menu when a navbar link is clicked
-navbarLinks.forEach(link => {
-  link.addEventListener('click', () => {
-    navbar.classList.remove('active');
-    menuToggle.classList.remove('active');
+      // إغلاق القائمة بعد النقر (للهواتف)
+      navbar.classList.remove("active");
+      menuToggle.classList.remove("active");
+    });
+  });
+
+  // تحديث `active` عند التمرير إلى القسم المناسب
+  window.addEventListener("scroll", function () {
+    let scrollPosition = window.scrollY;
+
+    sections.forEach((section) => {
+      let sectionTop = section.offsetTop - 100; // تعديل ليكون أكثر دقة
+      let sectionHeight = section.clientHeight;
+      let sectionId = section.getAttribute("id");
+
+      if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+        navbarLinks.forEach((link) => link.classList.remove("active"));
+        document.querySelector(`.navbar a[href="#${sectionId}"]`).classList.add("active");
+      }
+    });
   });
 });
+
+
+
+
+
+
+
 
 document.addEventListener("DOMContentLoaded", function () {
   const radialBars = document.querySelectorAll(".radial-bars");
