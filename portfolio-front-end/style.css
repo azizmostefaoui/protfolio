@@ -652,15 +652,17 @@ svg {
   stroke: rgba(209, 196, 196, 0.029);
   stroke-width: 10;
 }
+
 .path {
   fill: none;
   stroke: #0ef;
   stroke-width: 10;
-  stroke-dasharray: 502; /* محيط الدائرة = 2 * π * نصف القطر */
-  stroke-dashoffset: 502;
+  stroke-dasharray: 502; /* محيط الدائرة */
+  stroke-dashoffset: 502; /* يبدأ كدائرة فارغة */
   stroke-linecap: round;
   transition: stroke-dashoffset 1s ease-out;
 }
+
 .percentage {
   position: absolute;
   top: 25%;
@@ -669,41 +671,7 @@ svg {
   font-size: 17px;
   font-weight: 500;
 }
-@keyframes animation-bar-85 {
-  0% {
-    stroke-dashoffset: 502; /* يبدأ من المحيط الكامل */
-  }
-  100% {
-    stroke-dashoffset: calc(502 - (502 * 85 / 100));
-  }
-}
 
-@keyframes animation-bar-95 {
-  0% {
-    stroke-dashoffset: 502; /* يبدأ من المحيط الكامل */
-  }
-  100% {
-    stroke-dashoffset: calc(502 - (502 * 95 / 100));
-  }
-}
-
-@keyframes animation-bar-70 {
-  0% {
-    stroke-dashoffset: 502; /* يبدأ من المحيط الكامل */
-  }
-  100% {
-    stroke-dashoffset: calc(502 - (502 * 70 / 100));
-  }
-}
-
-@keyframes animation-bar-90 {
-  0% {
-    stroke-dashoffset: 502; /* يبدأ من المحيط الكامل */
-  }
-  100% {
-    stroke-dashoffset: calc(502 - (502 * 90 / 100));
-  }
-}
 
 .radial-bars:nth-child(1) .path {
   animation: animation-bar-85 1s ease-out forwards;
