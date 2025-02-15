@@ -67,26 +67,28 @@ document.addEventListener("DOMContentLoaded", function () {
   const menuToggle = document.getElementById("menu-toggle");
   const navbar = document.getElementById("navbar");
   const navbarLinks = document.querySelectorAll(".navbar a");
-  const sections = document.querySelectorAll("section"); // جميع الأقسام
+  const sections = document.querySelectorAll("section");
 
-  // عند النقر على أي رابط، اجعله نشطًا
+  // ** تشغيل / إيقاف القائمة عند النقر على زر الـ Menu **
+  menuToggle.addEventListener("click", function () {
+    navbar.classList.toggle("active"); // عرض أو إخفاء القائمة
+    menuToggle.classList.toggle("active"); // تغيير أيقونة الهامبرغر
+  });
+
+  // ** إغلاق القائمة عند النقر على رابط داخلها **
   navbarLinks.forEach((link) => {
     link.addEventListener("click", function () {
-      navbarLinks.forEach((el) => el.classList.remove("active")); // إزالة `active` من الجميع
-      this.classList.add("active"); // إضافة `active` للرابط الحالي
-
-      // إغلاق القائمة بعد النقر (للهواتف)
       navbar.classList.remove("active");
       menuToggle.classList.remove("active");
     });
   });
 
-  // تحديث `active` عند التمرير إلى القسم المناسب
+  // ** تحديث الرابط النشط عند التمرير **
   window.addEventListener("scroll", function () {
     let scrollPosition = window.scrollY;
 
     sections.forEach((section) => {
-      let sectionTop = section.offsetTop - 100; // تعديل ليكون أكثر دقة
+      let sectionTop = section.offsetTop - 100;
       let sectionHeight = section.clientHeight;
       let sectionId = section.getAttribute("id");
 
