@@ -6,6 +6,7 @@ var typed = new Typed(".text", {
   loop:true
 });
 
+//this for send mail
 
 
 function SendMail() {
@@ -34,6 +35,7 @@ function SendMail() {
 
 
 
+//this for button top
 
 // جلب الزر
 const topButton = document.querySelector('.top');
@@ -60,7 +62,7 @@ function scrollToTop() {
 
 
 
-
+//this for navbar
 document.addEventListener("DOMContentLoaded", function () {
   const menuToggle = document.getElementById("menu-toggle");
   const navbar = document.getElementById("navbar");
@@ -102,6 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+//this for progress 
 
 document.addEventListener("DOMContentLoaded", function () {
   const radialBars = document.querySelectorAll(".radial-bars");
