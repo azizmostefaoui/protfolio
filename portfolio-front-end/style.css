@@ -226,11 +226,10 @@ transition: box-shadow 0.3s ease-in-out;
   .home-content .h3333 {
     padding: auto;
     font-weight: 700;
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     opacity: 1;
     animation: slideBotton 1s ease forwards;
     animation-delay: 0.7s;
-    visibility: hidden;
     }
   .home-content .h6666 {
     padding-top: 1rem;
