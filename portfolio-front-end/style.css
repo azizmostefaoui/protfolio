@@ -230,6 +230,7 @@ transition: box-shadow 0.3s ease-in-out;
     opacity: 1;
     animation: slideBotton 1s ease forwards;
     animation-delay: 0.7s;
+    visibility: hidden;
     }
   .home-content .h6666 {
     padding-top: 1rem;
